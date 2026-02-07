@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Darts for Roses 💘</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ffe6ee;
+      margin-top: 60px;
+    }
+
+    h1 {
+      color: #c2185b;
+    }
+
+    #dart {
+      font-size: 100px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    #dart:active {
+      transform: scale(0.9);
+    }
+
+    #roses {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .rose {
+      font-size: 30px;
+      margin: 5px;
+      display: inline-block;
+      animation: pop 0.3s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hit the Dart, Get a Rose 🌹</h1>
+  <p>Every dart you click gives you a rose from me ❤️</p>
+
+  <div id="dart">🎯</div>
+
+  <div id="roses">
+    Roses collected: <span id="count">0</span>
+  </div>
+
+  <div id="roseGarden"></div>
+
+  <script>
+    let count = 0;
+    const dart = document.getElementById("dart");
+    const countDisplay = document.getElementById("count");
+    const roseGarden = document.getElementById("roseGarden");
+
+    dart.addEventListener("click", () => {
+      count++;
+      countDisplay.textContent = count;
+
+      const rose = document.createElement("span");
+      rose.textContent = "🌹";
+      rose.className = "rose";
+      roseGarden.appendChild(rose);
+    });
+  </script>
+
+</body>
+</html>
